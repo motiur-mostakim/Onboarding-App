@@ -47,9 +47,6 @@ class _HomeScreenState extends State<HomeScreen> {
       setState(() {
         selectedDate = pickedDate;
       });
-      if (selectedTime != null) {
-        _setAlarm();
-      }
     }
   }
 
@@ -63,7 +60,6 @@ class _HomeScreenState extends State<HomeScreen> {
       setState(() {
         selectedTime = time;
       });
-      _setAlarm();
     }
   }
 
@@ -105,110 +101,115 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 75.h,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 48.w),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Selected Location",
-                    style: GoogleFonts.oxygen(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16.sp,
-                      color: AppColors.whiteColor,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 75.h,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 48.w),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Selected Location",
+                      style: GoogleFonts.oxygen(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16.sp,
+                        color: AppColors.whiteColor,
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 16.h,
-                  ),
-                  Row(
-                    children: [
-                      Image.asset(
-                        AppAssets.homeLocationIcon,
-                        height: 24.h,
-                        width: 24.w,
-                      ),
-                      SizedBox(
-                        width: 9.w,
-                      ),
-                      Expanded(
-                        child: Text(
-                          widget.location.toString(),
-                          maxLines: 2,
-                          style: GoogleFonts.oxygen(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16.sp,
-                            color: AppColors.whiteColor,
+                    SizedBox(
+                      height: 16.h,
+                    ),
+                    Row(
+                      children: [
+                        Image.asset(
+                          AppAssets.homeLocationIcon,
+                          height: 24.h,
+                          width: 24.w,
+                        ),
+                        SizedBox(
+                          width: 9.w,
+                        ),
+                        Expanded(
+                          child: Text(
+                            widget.location.toString(),
+                            maxLines: 2,
+                            style: GoogleFonts.oxygen(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16.sp,
+                              color: AppColors.whiteColor,
+                            ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 10.h,
-                  ),
-                  CustomButtonWidget(
-                    btnHeight: 48.h,
-                    btnBorderRadius: 4.r,
-                    isBtnImage: false,
-                    btnImage: null,
-                    btnText: "Add Alarm",
-                    btnFunc: () async {
-                      await _selectTime(context);
-                      await _selectDate(context);
-                    },
-                    btnTextFontWeight: FontWeight.w500,
-                    btnColor: AppColors.secondaryBtnColor,
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 34.h,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.w),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Alarms",
-                    style: GoogleFonts.oxygen(
-                      fontSize: 18.sp,
-                      color: AppColors.whiteColor,
+                      ],
                     ),
-                  ),
-                  SizedBox(
-                    height: 16.h,
-                  ),
-                  ListView.builder(
-                    itemCount: alarms.length,
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemBuilder: (context, index) {
-                      DateTime alarmTime = alarms[index];
-                      String formattedTime =
-                          DateFormat('hh:mm a').format(alarmTime);
-                      String formattedDate =
-                          DateFormat('dd-MM-yyyy').format(alarmTime);
-                      return alarms.isNotEmpty
-                          ? AlarmCardWidget(
-                              timeText: formattedTime,
-                              dateText: formattedDate,
-                            )
-                          : const Text("No data");
-                    },
-                  ),
-                ],
+                    SizedBox(
+                      height: 10.h,
+                    ),
+                    CustomButtonWidget(
+                      btnHeight: 48.h,
+                      btnBorderRadius: 4.r,
+                      isBtnImage: false,
+                      btnImage: null,
+                      btnText: "Add Alarm",
+                      btnFunc: () async {
+                        await _selectTime(context);
+                        await _selectDate(context);
+                        if (selectedDate != null && selectedTime != null) {
+                          _setAlarm();
+                        }
+                      },
+                      btnTextFontWeight: FontWeight.w500,
+                      btnColor: AppColors.secondaryBtnColor,
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+              SizedBox(
+                height: 34.h,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.w),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Alarms",
+                      style: GoogleFonts.oxygen(
+                        fontSize: 18.sp,
+                        color: AppColors.whiteColor,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 16.h,
+                    ),
+                    ListView.builder(
+                      itemCount: alarms.length,
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        DateTime alarmTime = alarms[index];
+                        String formattedTime =
+                            DateFormat('hh:mm a').format(alarmTime);
+                        String formattedDate =
+                            DateFormat('dd-MM-yyyy').format(alarmTime);
+                        return alarms.isNotEmpty
+                            ? AlarmCardWidget(
+                                timeText: formattedTime,
+                                dateText: formattedDate,
+                              )
+                            : const Text("No data");
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
