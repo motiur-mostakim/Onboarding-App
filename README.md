@@ -29,3 +29,9 @@ location and geocoding =>	To get user’s current location
 intl =>	For date and time formatting
 shared_preferences =>	To optionally save alarms locally
 permission_handler => To request location permissions
+
+
+**project screenShort**
+
+## Onboarding Screen
+(assets/screen_short/Screenshot_1750448702.png)
