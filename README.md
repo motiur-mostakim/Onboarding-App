@@ -33,18 +33,18 @@ permission_handler => To request location permissions
 
 **project screenShort**
 
-## Onboarding Screen
-
-![Onboarding Screen](assets/screen_short/Screenshot_1750448800.png)
-![Onboarding Screen](assets/screen_short/Screenshot_1750448804.png)
-![Onboarding Screen](assets/screen_short/Screenshot_1750448808.png)
-
 ## Home Screen
 
 ![Home Screen](assets/screen_short/Screenshot_1750448702.png)
 ![Home Screen](assets/screen_short/Screenshot_1750448761.png)
 ![Home Screen](assets/screen_short/Screenshot_1750448777.png)
 ![Home Screen](assets/screen_short/Screenshot_1750448788.png)
+
+## Onboarding Screen
+
+![Onboarding Screen](assets/screen_short/Screenshot_1750448800.png)
+![Onboarding Screen](assets/screen_short/Screenshot_1750448804.png)
+![Onboarding Screen](assets/screen_short/Screenshot_1750448808.png)
 
 ## Welcome Screen
 
