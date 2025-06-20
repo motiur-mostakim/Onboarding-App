@@ -20,7 +20,7 @@ This app guides the user through an onboarding experience, asks for location per
 
 ## 📸 Screenshots (Optional but recommended)
 
-> Add screenshots here using `![screenshot](path/to/image)` if possible.
+> Add screenshots here using `![screenshot](assets/screen_short/Screenshot_1750448702.png)` if possible.
 
 🧰 **Packages Used**
 
