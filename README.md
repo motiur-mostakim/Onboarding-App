@@ -1,16 +1,31 @@
-# onboarding_app
-
-A new Flutter project.
 
 ## Getting Started
+# 🛠️ Onboarding App (Flutter)
 
-This project is a starting point for a Flutter application.
+A simple and elegant onboarding app built using Flutter.  
+This app guides the user through an onboarding experience, asks for location permission, and allows the user to set alarms with local notifications.
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🚀 Features
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- ✅ Beautiful onboarding screens (3 screens based on Figma design)
+- 📍 Request and display current location
+- ⏰ Set alarms with custom time
+- 🔔 Local notifications when alarm goes off
+- 💾 Optional: Persist alarms locally using local storage
+- 📱 Responsive UI for all screen sizes
+
+---
+
+## 📸 Screenshots (Optional but recommended)
+
+> Add screenshots here using `![screenshot](path/to/image)` if possible.
+
+🧰 **Packages Used**
+
+flutter_local_notifications =>	For showing local notifications
+location and geocoding =>	To get user’s current location
+intl =>	For date and time formatting
+shared_preferences =>	To optionally save alarms locally
+permission_handler => To request location permissions
