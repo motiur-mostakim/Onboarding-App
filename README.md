@@ -46,4 +46,8 @@ permission_handler => To request location permissions
 ![Home Screen](assets/screen_short/Screenshot_1750448777.png)
 ![Home Screen](assets/screen_short/Screenshot_1750448788.png)
 
+## Welcome Screen
+
+![Home Screen](assets/screen_short/Screenshot_1750448796.png)
+
 
