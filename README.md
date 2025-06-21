@@ -29,6 +29,10 @@ location and geocoding =>	To get user’s current location
 intl =>	For date and time formatting
 shared_preferences =>	To optionally save alarms locally
 permission_handler => To request location permissions
+flutter_screenutil => For making the UI responsive across different screen sizes and densities
+google_fonts => customizable fonts from Google Fonts in this app
+dots_indicator => 	To show dot indicators (e.g., in onboarding or tutorial screens)
+timezone => To manage and schedule time-based tasks or notifications across time zones
 
 
 **project screenShort**
